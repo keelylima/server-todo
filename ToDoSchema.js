@@ -7,6 +7,6 @@ const ToDoSchema = new Schema({
     idade: {type: Number, }, //não esquecer de colocar require em todos
 })
 
-const toDoModel = mongoose.model('todo-list', ToDoSchema);
+const toDoModel = mongoose.model('todo-list', ToDoSchema, 'todo-list');
 
 module.exports = { toDoModel };
