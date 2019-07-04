@@ -1,8 +1,8 @@
 const { connect } = require('./ToDoRepository');
-const { toDoModel } = require('./ToDoSchema');
+const toDoModel = require('./ToDoSchema');
 connect(); 
 
-const getAll = () => {
+const getAll = async () => {
     return toDoModel.find((error, todos) => {
         if(error) {
             console.error(error)
@@ -11,6 +11,18 @@ const getAll = () => {
     });
 }
 
+const add = (tarefa) => {
+    const novaTarefa = new toDoModel(tarefa);
+    return novaTarefa.save();
+}
+
+const remove = (id) => {
+    return toDoModel.findByIdAndDelete(id)
+}
+
+
 module.exports = {
-    getAll
+    getAll,
+    add,
+    remove
 }
