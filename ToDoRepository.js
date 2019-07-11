@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const MONGO_URL = process.env.MONGODB_URI;
 
-const MONGO_URL = "mongodb://localhost:27017/todo"
+// const MONGO_URL = "mongodb://localhost:27017/todo"
 
 function connect() {
     mongoose.connect(MONGO_URL, {useNewUrlParser: true}, function(error) {
